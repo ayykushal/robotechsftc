@@ -1,0 +1,40 @@
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+RewriteEngine On
+
+# Redirect public HTTP requests to HTTPS (leave local preview servers alone).
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP_HOST} !^(localhost|127\.0\.0\.1)(:[0-9]+)?$ [NC]
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE]
+
+# Canonicalise externally requested file URLs without looping on internal rewrites.
+RewriteCond %{THE_REQUEST} "\s/+index\.html(?:[?\s])" [NC]
+RewriteRule ^index\.html$ / [R=301,L,NE]
+RewriteCond %{THE_REQUEST} "\s/+[^?\s]+\.html(?:[?\s])" [NC]
+RewriteRule ^(.+)\.html$ /$1 [R=301,L,NE]
+
+# Remove trailing slashes only from routes backed by an HTML file.
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+)/$ /$1 [R=301,L,NE]
+
+# Serve the real file while keeping the extensionless public URL.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [END]
+
+ErrorDocument 404 /404.html
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Strict-Transport-Security "max-age=31536000" "expr=%{HTTPS} == 'on'"
+</IfModule>
+
+# Cache original photos across page visits; changed files still revalidate after a week.
+<IfModule mod_headers.c>
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|avif|ttf|woff2?)$">
+Header set Cache-Control "public, max-age=604800"
+</FilesMatch>
+</IfModule>

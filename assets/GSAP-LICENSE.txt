@@ -1,0 +1,1 @@
+GSAP 3.13.0, Copyright GreenSock. Original copyright and licence notices are preserved in the bundled library headers. Licence terms: https://gsap.com/standard-license/

@@ -1,0 +1,145 @@
+{
+  "images": "Original files copied without image compression or resizing",
+  "files": [
+    {
+      "file": "assets/20260919_163953.jpg",
+      "sha256": "cbb8bd2f276385f1a4509d5b3cdeeb33ebf4b496320297689f118361c6de39a6"
+    },
+    {
+      "file": "assets/20260920_171941.jpg",
+      "sha256": "70a8ef87c583325cb8e160afba739f815d662b6c696bc698895cd29f9c27d4ac"
+    },
+    {
+      "file": "assets/20260927_181202.jpg",
+      "sha256": "9412e8a5824ae7c8cd04ecc015496e0af8ac082812b2bd88e18c052e3563384c"
+    },
+    {
+      "file": "assets/IMG_5447.jpg",
+      "sha256": "a2c08f8b4f086b47329a6406fccd66b761ef865ef3df1f75fd7b064cfd6e4df9"
+    },
+    {
+      "file": "assets/PXL_20251213_201029041.jpg",
+      "sha256": "d211a0a63824ede957e0e560092c93dc6f1aa1f7110978e1a91b5b7c62d6fff8"
+    },
+    {
+      "file": "assets/PXL_20251213_224250904.jpg",
+      "sha256": "240df643bf7cd8eda594b192f4a85d81dba678e441413c973f47b26885adb178"
+    },
+    {
+      "file": "assets/PXL_20260124_153559418.jpg",
+      "sha256": "f968400bdd90ee9c2899685ce53ab07022cf794d160d328becf84270dc6ae628"
+    },
+    {
+      "file": "assets/PXL_20260124_181920784.jpg",
+      "sha256": "bf9a24c0c4b36ca10633a936673cb45e93d819191dca589580af63dd26882efb"
+    },
+    {
+      "file": "assets/ScrollTrigger.min.js",
+      "sha256": "308219390e5e3b84cda0c481e70caa9820883ae10bda44e6e9a149a81aac4b3f"
+    },
+    {
+      "file": "assets/event-44a6699368e7-original.jpg",
+      "sha256": "2ef461202a60ded7b3ce0b195a5dce3f5a6340689e954414634cae6c9d5f01d2"
+    },
+    {
+      "file": "assets/event-4b6bf9c6bffe-original.png",
+      "sha256": "c6ce352262bc7de405c516820d560938a5bb772347ded5109164743766f4b446"
+    },
+    {
+      "file": "assets/event-5a990b20789b-original.jpg",
+      "sha256": "58e7ef54d14ecf4f10ba3a3b2828bdc2ea73fb516fb98fbdff71b559944cb188"
+    },
+    {
+      "file": "assets/event-641291a4bff8-original.jpg",
+      "sha256": "a01602ae594cce1f942486409666db303818f41cf5b6b512ce7abeacefe7d844"
+    },
+    {
+      "file": "assets/event-d258865aa794-original.png",
+      "sha256": "e5a29328095ed7ba1814fa1b8c860239ed1b8e8e58b3cb0e173acc29967e26db"
+    },
+    {
+      "file": "assets/event-efb79599fe08-original.png",
+      "sha256": "c9d8a3a4db7c232e40fd8fac14e225f1c0dbc40e866f8c8f3ffb5e9ec28e9cf3"
+    },
+    {
+      "file": "assets/fonts.css",
+      "sha256": "2db6ee8879ccdd624aade6b9e9f38d7ea69917b0077e07622df3bbdb854c80d0"
+    },
+    {
+      "file": "assets/fxn 2025-12-13 100131.744.jpg",
+      "sha256": "8d44b338467d4bef4b43be4382cd3e1ef9d3bc191dce1b7b14a098300b67128a"
+    },
+    {
+      "file": "assets/fxn 2025-12-13 110158.697.jpg",
+      "sha256": "0e16f2c36cd1d40783a44e2e86007d4639badee9354f74f391ab5f1d947b4fb6"
+    },
+    {
+      "file": "assets/fxn 2025-12-13 110202.399.jpg",
+      "sha256": "9446e3e3a8bee1f2fbc8dcdd77bab0961bfedfb713c661fbc7144c53d911ba53"
+    },
+    {
+      "file": "assets/fxn 2025-12-13 110246.399.jpg",
+      "sha256": "6b54aa7373318f0aefeec722e6371442af6f4a5a87c4e7f4dfc6a43f46b11ca3"
+    },
+    {
+      "file": "assets/fxn 2025-12-13 145451.520.jpg",
+      "sha256": "208ee657a574f83d4b11268320937a0719a2b41f7dc8b5a8652c81b2b8d900a4"
+    },
+    {
+      "file": "assets/gsap.min.js",
+      "sha256": "96c01b81f44a3290e2b4532f55e2c9534b2adc43273a19f3756b2cb41f0fd0b6"
+    },
+    {
+      "file": "assets/resources-team-pit.png",
+      "sha256": "6beae85c3c6ec8a2e81a0aca6773cb7919e3dfd11cbceb509ef6f106e063d006"
+    },
+    {
+      "file": "assets/robot-1-original.jpg",
+      "sha256": "c76d4b440d35b1468090a57b482aa3590b04bd16e4d2029faff4945b6dc6395c"
+    },
+    {
+      "file": "assets/robot-2-original.jpg",
+      "sha256": "afce6ef821cb6c7cb61d1b34119617eafbdc15906fdcf4d934cb20def7056d7e"
+    },
+    {
+      "file": "assets/robot-3-original.png",
+      "sha256": "4c30eedfe0a6f4e869d74f8415af38bf9b1c9ecf78b474c1345b95185dc801bb"
+    },
+    {
+      "file": "assets/robot-4-original.jpg",
+      "sha256": "aac3846f56e146397857967c7edc46b977589a53f69a0128416f8109e0a9cc56"
+    },
+    {
+      "file": "assets/robot-5-original.png",
+      "sha256": "0646a2da170c056c3fdfc013b5f94fbeb3a1b7964625ac3099dc83c6173cf91b"
+    },
+    {
+      "file": "assets/robot-6-original.jpg",
+      "sha256": "2099fa48ebd2b842998d8bfd12c4530135e7b65bc8c6f876b25950579b5845e9"
+    },
+    {
+      "file": "assets/robot-7-original.png",
+      "sha256": "acb0aa93a6fb58926d5abf3987d7040c1572d7749d07be759b2878e430ece471"
+    },
+    {
+      "file": "assets/robot-8-original.jpg",
+      "sha256": "53ac6bf019647e18edb931bd6b598463b8aae6542fc21b9e15b1522bad943833"
+    },
+    {
+      "file": "assets/robot-9-original.png",
+      "sha256": "a9c4795ac08615358097db61b6b7468236600890a1f2fe0eb195283f043651e1"
+    },
+    {
+      "file": "assets/robotechs-logo.png",
+      "sha256": "1de092c5d28fac56c56b0cecf6cffa0cfb864682b61260f742d719af7957759f"
+    },
+    {
+      "file": "assets/team-portrait-original.png",
+      "sha256": "e5d5dee30a411796815e4e4d862b285d3df5efa1cb80953fcd47a683279c65e0"
+    },
+    {
+      "file": "assets/youtube-channel-preview.png",
+      "sha256": "bb7c9886a90c5f4610d356c6542205883648ab769b4852672e3095e1c1c92a00"
+    }
+  ]
+}
