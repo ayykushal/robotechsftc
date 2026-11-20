@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-# The production build adds the absolute sitemap address using your hosting URL.
+
+Sitemap: https://www.robotechsftc.org/sitemap.xml

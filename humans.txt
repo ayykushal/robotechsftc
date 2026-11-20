@@ -1,0 +1,10 @@
+/* TEAM */
+Website creator: Kushal
+Instagram: @ayykushal (https://www.instagram.com/ayykushal/)
+Team: Robotechs FTC 25611
+Location: Clarksburg, Maryland, USA
+About: https://www.robotechsftc.org/about
+
+/* SITE */
+Language: English
+Website: https://www.robotechsftc.org/

@@ -1,0 +1,7 @@
+# Robotechs FTC 25611
+
+Public pages may be crawled for search and discovery under the site's robots.txt rules.
+This notice does not grant any additional rights to train models on, reproduce, or reuse site content.
+
+Crawler rules: https://www.robotechsftc.org/robots.txt
+Site context: https://www.robotechsftc.org/llms.txt

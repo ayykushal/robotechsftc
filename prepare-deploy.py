@@ -5,7 +5,7 @@ from xml.sax.saxutils import escape
 import argparse, re
 
 def clean_url_rules(pages):
- rules=['/index.html / 301!']
+ rules=['/index.html / 301!','/security.txt /.well-known/security.txt 301','/llm.txt /llms.txt 301']
  for page in pages:
   if page.name in ('index.html','404.html'):continue
   route='/'+page.stem
@@ -35,6 +35,10 @@ def prepare(root,url):
  xml='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'  <url><loc>{escape(u)}</loc></url>\n' for u in urls)+'</urlset>\n'
  (root/'sitemap.xml').write_text(xml,encoding='utf-8')
  (root/'robots.txt').write_text(f'User-agent: *\nAllow: /\nSitemap: {origin}/sitemap.xml\n',encoding='utf-8')
+ security=root/'.well-known/security.txt'
+ if security.is_file():
+  content=re.sub(r'^Canonical: .+$',lambda match:f'Canonical: {origin}/.well-known/security.txt',security.read_text(encoding='utf-8'),flags=re.M)
+  security.write_text(content,encoding='utf-8')
  host=parsed.netloc
  (root/'_redirects').write_text(f'http://{host}/* {origin}/:splat 301!\n'+clean_url_rules(pages),encoding='utf-8')
  headers=(root/'_headers').read_text(encoding='utf-8')

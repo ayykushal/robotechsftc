@@ -1,0 +1,94 @@
+/* Qualifier map and schedule */
+.qualifier-map-panel {
+  background: linear-gradient(145deg, #dcecff, #f7fbff 66%);
+  border: 1px solid #fff;
+  border-radius: 28px;
+  padding: clamp(12px, 2.4vw, 32px);
+  box-shadow: 0 14px 36px #153c6012;
+}
+.qualifier-map-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 0 4px 14px;
+}
+.qualifier-map-header p { font-size: .9rem; }
+.qualifier-map-header p:first-child { color: var(--navy); font-weight: 600; }
+.qualifier-schedule {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+.qualifier-schedule li + li { border-inline-start: 1px solid #b9cee1; }
+.qualifier-schedule a {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: start;
+  gap: 10px;
+  min-height: 44px;
+  height: 100%;
+  padding: 14px 12px;
+  border-radius: 12px;
+  color: var(--navy);
+}
+.qualifier-schedule a:focus-visible { background: #fff; }
+@media(hover:hover) and (pointer:fine){.qualifier-schedule a:hover { background: #fff; }}
+.qualifier-schedule a svg { margin-top: 3px; }
+.qualifier-schedule-number { display: grid; place-items: center; width: 28px; height: 28px; padding: 0; margin: 0; border-radius: 50%; background: #d9eafd; color: #154b81; font-size: 14px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: 0; }
+.qualifier-schedule-info { display: grid; gap: 3px; min-width: 0; }
+.qualifier-schedule-info strong { line-height: 1.3; }
+.qualifier-schedule-info span, .qualifier-schedule-info time { color: var(--muted); font-size: .875rem; }
+
+.qualifier-live-map { height: clamp(400px, 38vw, 450px); width: 100%; position: relative; border-radius: 18px; overflow: hidden; background: #e5effa; isolation: isolate; }
+#qualifier-live-map button { min-width: 44px; min-height: 44px; color: var(--navy); border-radius: 12px; }
+#qualifier-live-map button::after { display: none; }
+#qualifier-live-map .maplibregl-canvas { outline-offset: -4px; }
+#qualifier-live-map .maplibregl-marker { z-index: 2; }
+#qualifier-live-map .maplibregl-marker:focus-within { z-index: 3; }
+#qualifier-live-map .maplibregl-popup { z-index: 4; font-family: inherit; }
+#qualifier-live-map .maplibregl-popup-content { padding: 0; background: transparent; box-shadow: none; }
+#qualifier-live-map .maplibregl-popup-tip { display: none; }
+.live-map-pin { display: grid; place-items: center; width: 44px; height: 44px; background: transparent; padding: 0; border: 0; border-radius: 50%; position: relative; }
+.live-map-pin:focus-visible { outline: 2px solid #005cb9; outline-offset: 3px; }
+.live-map-marker { display: grid; place-items: center; position: relative; width: 44px; height: 44px; transform-origin: 50% 90%; filter: drop-shadow(0 2px 3px #153c6038) drop-shadow(0 0 7px #0574d94d); }
+.live-map-glyph { display: block; color: #005cb9; fill: currentColor; stroke: white; }
+/* The ordinal replaces the icon's center dot and matches the schedule below. */
+.live-map-glyph circle { display: none; }
+.live-map-marker-number { position: absolute; top: 12px; left: 0; width: 44px; text-align: center; color: #fff; font-size: 13px; font-weight: 600; line-height: 14px; font-variant-numeric: tabular-nums; }
+.live-map-dot { display: grid; place-items: center; width: 25px; height: 25px; border-radius: 50%; background: #005cb9; border: 2px solid white; color: white; font-size: 13px; font-weight: 600; box-shadow: 0 0 0 5px #0574d927, 0 0 18px 5px #0574d961; }
+.live-map-home .live-map-dot { background: var(--navy); }
+.live-map-label { position: absolute; left: 43px; white-space: nowrap; padding: 6px 10px; border-radius: 10px; background: #f6fbfff2; color: var(--navy); box-shadow: 0 3px 10px #183a5b17; font-size: 13px; font-weight: 600; line-height: 1; pointer-events: none; }
+.label-manassas { left: auto; right: 43px; }
+.label-martinsville { left: 50%; bottom: 44px; translate: -50% 0; }
+#qualifier-live-map .live-home-card { display: grid; gap: 2px; width: 190px; border: 1px solid #fff; border-radius: 14px; padding: 12px 32px 12px 14px; background: #f1f7fff2; color: var(--navy); box-shadow: inset 0 1px 0 #fff, 0 6px 16px #173b632e; backdrop-filter: blur(10px); font-size: 13px; line-height: 1.3; }
+.live-home-card span { color: var(--muted); }
+#qualifier-live-map .live-home-card button { position: absolute; top: 0; right: 0; min-width: 32px; min-height: 32px; }
+#qualifier-live-map .map-reset { position: absolute; bottom: 32px; right: 12px; display: flex; align-items: center; gap: 8px; background: #f6faffed; border: 1px solid #c5d8ec; padding: 10px 12px; font-size: 13px; box-shadow: 0 4px 12px #173b6320; }
+.map-unavailable { padding: 32px; color: var(--navy); }
+@media (hover:hover) and (pointer:fine) { .live-map-pin:hover .live-map-dot, .live-map-pin:hover .live-map-marker { transform: scale(1.12); } }
+@media (prefers-reduced-motion:no-preference) { .live-map-dot, .live-map-marker { transition: transform 180ms var(--ease-out); } }
+@media (prefers-reduced-motion:reduce) { #qualifier-live-map * { animation: none !important; transition: none !important; } }
+@media (max-width:700px) {
+  .qualifier-map-header { padding-bottom: 10px; }
+  .qualifier-live-map { height: 350px; }
+  #qualifier-live-map .live-home-card { width: 170px; }
+  .live-map-label { padding: 4px 7px; border-radius: 8px; font-size: 11px; }
+  .label-manassas { right: 36px; }
+  .map-detail .label-manassas { left: calc(100% + 8px); right: auto; }
+  .label-baltimore { left: calc(50% - 3px); right: auto; top: calc(100% + 3px); translate: -50% 0; }
+  .label-martinsville { left: calc(50% + 8px); right: auto; top: calc(100% + 3px); bottom: auto; translate: 0 0; }
+  .qualifier-schedule { grid-template-columns: 1fr; }
+  .qualifier-schedule li + li { border-inline-start: 0; border-top: 1px solid #b9cee1; }
+}
+@media (max-width:360px) {
+  #qualifier-live-map .live-home-card { width: 150px; }
+  .live-map-label { padding: 3px 5px; font-size: 10px; }
+  .label-baltimore { left: calc(50% - 14px); }
+}
+@media (prefers-reduced-transparency:reduce), (prefers-contrast:more) {
+  #qualifier-live-map .live-home-card { background: #f6fbff; backdrop-filter: none; }
+}

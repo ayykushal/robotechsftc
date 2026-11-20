@@ -1,0 +1,21 @@
+node_modules
+.git
+.vercel
+/map-client/
+.agents
+.*/skills/
+skills-lock.json
+
+# Archived originals kept locally. Remove a rule if a page uses that photo again.
+/assets/event-4b6bf9c6bffe-original.png
+/assets/event-5a990b20789b-original.jpg
+/assets/event-641291a4bff8-original.jpg
+/assets/event-d258865aa794-original.png
+/assets/event-efb79599fe08-original.png
+/assets/hindi-class-demo-flyer.png
+/assets/ig-stem-tober-photos-02.jpg
+/assets/ig-stem-tober-photos-05.jpg
+/assets/ig-stem-tober-photos-06.jpg
+/assets/PXL_20260124_153559418.jpg
+/assets/stemtober-20261011-120341.jpg
+/assets/mcpl-robotics-event-flyer.png

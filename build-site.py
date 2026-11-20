@@ -12,7 +12,15 @@ with tempfile.TemporaryDirectory(prefix='.build-',dir=root) as temporary:
  stage=Path(temporary).resolve()
  assert stage.is_relative_to(root)
  for p in root.glob('*.html'):shutil.copy2(p,stage/p.name)
- for name in ('style.css','site.js','form-utils.js','_headers','_redirects','.htaccess','robots.txt','version.json'):shutil.copy2(root/name,stage/name)
+ public_files = (
+  'style.css', 'site.js', 'site-meta.js', 'form-utils.js', 'favicon.png',
+  'analytics.js', 'vercel-analytics.mjs', 'vercel-analytics.LICENSE.txt',
+  '_headers', '_redirects', '.htaccess', 'version.json',
+  'robots.txt', 'ai.txt', 'llms.txt', 'ads.txt', 'humans.txt',
+ )
+ for name in public_files:shutil.copy2(root/name,stage/name)
+ (stage/'.well-known').mkdir()
+ shutil.copy2(root/'.well-known/security.txt',stage/'.well-known/security.txt')
  shutil.copytree(root/'assets',stage/'assets')
  count=module.prepare(stage,args.url)
  validate(stage)

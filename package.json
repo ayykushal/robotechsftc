@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@vercel/analytics": "2.0.1"
+  },
+  "name": "robotechs-website",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-analytics.mjs && node scripts/build-home-css.mjs"
+  }
+}

@@ -1,0 +1,220 @@
+/* Web interpretation of Apple's Liquid Glass: material belongs to controls
+   and navigation. Text, photographs and page content remain sharp. */
+:root {
+  --glass-clear: linear-gradient(155deg, rgb(255 255 255 / .5), rgb(255 255 255 / .16) 48%, rgb(255 255 255 / .3));
+  --glass-rim: rgb(255 255 255 / .82);
+  --glass-shadow: 0 5px 16px rgb(11 37 69 / .08), inset 0 1px 0 rgb(255 255 255 / .95), inset 0 -1px 0 rgb(34 67 104 / .19), inset 1px 0 0 rgb(255 255 255 / .6), inset -1px 0 0 rgb(255 255 255 / .38);
+  --glass-blue: linear-gradient(155deg, rgb(9 104 203 / .94), rgb(0 83 174 / .94));
+  --glass-on-blue: linear-gradient(155deg, rgb(255 255 255 / .98), rgb(245 249 255 / .92));
+  --glass-ease: cubic-bezier(.2, .8, .2, 1);
+}
+
+/* A single floating navigation surface; only the selected item is elevated. */
+.nav-shell,
+.nav-shell.is-scrolled {
+  background: var(--glass-clear);
+  border-color: var(--glass-rim);
+  box-shadow: 0 8px 28px rgb(11 37 69 / .08), inset 0 1px 0 rgb(255 255 255 / .96), inset 0 -1px 0 rgb(34 67 104 / .12);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+  backdrop-filter: blur(18px) saturate(135%);
+  transition: box-shadow 200ms var(--glass-ease);
+}
+.nav-shell.is-scrolled {
+  /* A little more diffusion keeps moving content behind the bar legible. */
+  background-color: rgb(245 248 251 / .24);
+  box-shadow: 0 10px 30px rgb(11 37 69 / .1), inset 0 1px 0 rgb(255 255 255 / .96), inset 0 -1px 0 rgb(34 67 104 / .14);
+}
+.nav-shell::before,
+.nav-shell.is-scrolled::before {
+  background: linear-gradient(115deg, rgb(255 255 255 / .3), transparent 38%, rgb(255 255 255 / .08) 75%);
+}
+.nav #nav-links a::before {
+  background: var(--glass-clear);
+  border-color: var(--glass-rim);
+  box-shadow: var(--glass-shadow);
+}
+
+/* Clear glass for secondary actions, saturated glass for primary actions.
+   No SVG displacement on text: the foreground never blurs or distorts. */
+:is(.button, .button.outline, .button.light, .text-link, .season-tabs button,
+  .carousel-controls button, .photo-zoom-controls button, .photo-navigation button),
+.nav-shell .menu,
+#photo-dialog .close {
+  background: var(--glass-clear);
+  border: 1px solid var(--glass-rim);
+  border-radius: 999px;
+  box-shadow: var(--glass-shadow);
+  color: #173d66;
+  -webkit-backdrop-filter: blur(8px) saturate(135%);
+  backdrop-filter: blur(8px) saturate(135%);
+  transition: transform 180ms var(--glass-ease), box-shadow 180ms var(--glass-ease), opacity 160ms ease;
+}
+.button:not(.outline):not(.light),.season-tabs button[aria-selected="true"]{
+  background: var(--glass-blue);
+  color: white;
+  border-color: rgb(206 233 255 / .72);
+  box-shadow: 0 5px 18px rgb(0 68 143 / .2), inset 0 1px 0 rgb(255 255 255 / .64), inset 0 -1px 0 rgb(0 38 88 / .25), inset 1px 0 0 rgb(255 255 255 / .22);
+}@media(hover:hover) and (pointer:fine){.button:not(.outline):not(.light):hover{
+  background: var(--glass-blue);
+  color: white;
+  border-color: rgb(206 233 255 / .72);
+  box-shadow: 0 5px 18px rgb(0 68 143 / .2), inset 0 1px 0 rgb(255 255 255 / .64), inset 0 -1px 0 rgb(0 38 88 / .25), inset 1px 0 0 rgb(255 255 255 / .22);
+}}
+
+/* Light actions on blue banners need their own material. Clear glass picks up
+   the blue backdrop and leaves the navy label without enough contrast. */
+.cta .button.light,.cta .button.light:active{
+  background: var(--glass-on-blue);
+  color: #10375f;
+  border-color: rgb(255 255 255 / .94);
+  box-shadow: 0 5px 16px rgb(0 39 88 / .16), inset 0 1px 0 white, inset 0 -1px 0 rgb(47 86 130 / .15);
+}@media(hover:hover) and (pointer:fine){.cta .button.light:hover{
+  background: var(--glass-on-blue);
+  color: #10375f;
+  border-color: rgb(255 255 255 / .94);
+  box-shadow: 0 5px 16px rgb(0 39 88 / .16), inset 0 1px 0 white, inset 0 -1px 0 rgb(47 86 130 / .15);
+}}
+.cta .button.contact-cta,.cta .button.contact-cta:active{
+  background: rgb(0 44 100 / .2);
+  color: white;
+  border-color: rgb(255 255 255 / .78);
+}@media(hover:hover) and (pointer:fine){.cta .button.contact-cta:hover{
+  background: rgb(0 44 100 / .2);
+  color: white;
+  border-color: rgb(255 255 255 / .78);
+}}
+
+/* The existing hover layer catches light without moving the hit target. */
+.button::after,
+.text-link::after,
+.season-tabs button::after,
+.nav-shell .menu::after,
+.carousel-controls button::after,
+.photo-zoom-controls button::after,
+.photo-navigation button::after,
+#photo-dialog .close::after {
+  background: radial-gradient(ellipse at 22% 0%, rgb(255 255 255 / .6), transparent 65%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / .88), inset 0 -1px 0 rgb(255 255 255 / .2);
+  transform: none;
+  transition: opacity 180ms var(--glass-ease);
+}
+
+/* Photo actions float above the image; the image itself is untouched. */
+.photo-open > span,
+.photo-open:not(:has(> span))::after,
+.tile.has-photo .tile-arrow {
+  background: var(--glass-clear);
+  background-color: rgb(255 255 255 / .48);
+  border-color: var(--glass-rim);
+  box-shadow: var(--glass-shadow);
+  -webkit-backdrop-filter: blur(10px) saturate(130%);
+  backdrop-filter: blur(10px) saturate(130%);
+  color: #173d66;
+}
+
+/* Informational chips keep a light rim without another expensive blur layer. */
+.roster-glass .event-cards .event-card-date,
+.roster-glass .event-cards .event-card-arrow,
+.status {
+  background: var(--glass-clear);
+  box-shadow: var(--glass-shadow);
+  border-color: var(--glass-rim);
+}
+
+/* Sheets use regular, more opaque glass to protect longer text. */
+.privacy-banner {
+  border-radius: 26px;
+  border-color: var(--glass-rim);
+  background: linear-gradient(135deg, rgb(255 255 255 / .9), rgb(245 248 251 / .86));
+  box-shadow: 0 12px 40px rgb(11 37 69 / .16), inset 0 1px 0 white;
+  -webkit-backdrop-filter: blur(20px) saturate(125%);
+  backdrop-filter: blur(20px) saturate(125%);
+}
+
+@media (max-width: 820px) {
+  /* Keep the bar's blur on its own layer. A filtered ancestor would stop
+     the expanded menu from sampling the page behind it (nested backdrops). */
+  .nav-shell, .nav-shell.is-scrolled {
+    background: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .nav-shell::before, .nav-shell.is-scrolled::before {
+    background: var(--glass-clear);
+    -webkit-backdrop-filter: blur(18px) saturate(135%);
+    backdrop-filter: blur(18px) saturate(135%);
+  }
+  .nav-shell #nav-links.open,
+  .nav-shell.is-scrolled #nav-links.open {
+    background: linear-gradient(135deg, rgb(255 255 255 / .93), rgb(245 248 251 / .88));
+    border-color: var(--glass-rim);
+    box-shadow: 0 12px 32px rgb(11 37 69 / .12), inset 0 1px 0 white;
+    -webkit-backdrop-filter: blur(18px) saturate(125%);
+    backdrop-filter: blur(18px) saturate(125%);
+  }
+  .nav #nav-links a[aria-current]::before { background: var(--glass-clear); }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  @media(hover:hover) and (pointer:fine){.button.outline:hover,.button.light:hover,.text-link:hover,.season-tabs button:not([aria-selected="true"]):hover,.photo-zoom-controls button:not(:disabled):hover,.photo-navigation button:not(:disabled):hover,.carousel-controls button:not(:disabled):hover,.nav-shell .menu:hover,#photo-dialog .close:hover{
+    background: var(--glass-clear);
+    background-color: rgb(255 255 255 / .16);
+    color: #10375f;
+    box-shadow: 0 7px 20px rgb(11 37 69 / .12), inset 0 1px 0 white, inset 0 -1px 0 rgb(34 67 104 / .2), inset 1px 0 0 rgb(255 255 255 / .65);
+  }}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .button:active:not(:disabled),
+  .text-link:active,
+  .season-tabs button:active,
+  .nav-shell .menu:active,
+  .carousel-controls button:active:not(:disabled),
+  .photo-zoom-controls button:active:not(:disabled),
+  .photo-navigation button:active:not(:disabled),
+  #photo-dialog .close:active {
+    transform: scale(.975);
+    transition-duration: 80ms;
+  }
+}
+
+/* These preferences apply to every material, including inherited surfaces. */
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  :root {
+    --glass-clear: linear-gradient(#f5f8fb, #f5f8fb);
+    --glass-blue: linear-gradient(#0058b2, #0058b2);
+    --glass-on-blue: linear-gradient(#f5f8fb, #f5f8fb);
+    --glass-rim: #6e88a2;
+    --glass-shadow: none;
+  }
+  .nav-shell, .nav-shell.is-scrolled,
+  .nav-shell #nav-links.open, .nav-shell.is-scrolled #nav-links.open,
+  .privacy-banner,
+  .button, .text-link, .season-tabs button,
+  .nav-shell .menu, .carousel-controls button,
+  .photo-zoom-controls button, .photo-navigation button,
+  #photo-dialog .close, .photo-open > span, .photo-open::after,
+  .tile.has-photo .tile-arrow, .status {
+    background-color: #f5f8fb;
+    /* Accessibility must also override the older, more specific controls. */
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+  }
+  .nav-shell, .nav-shell.is-scrolled,
+  .nav-shell #nav-links.open, .nav-shell.is-scrolled #nav-links.open,
+  .privacy-banner { background: #f5f8fb; border-color: #6e88a2; }
+  .nav-shell::before, .nav-link-bubble,
+  .button::after, .text-link::after, button:not(.photo-open)::after { display: none; }
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root { --glass-clear: linear-gradient(#f5f8fb, #f5f8fb); }
+  .nav-shell, .nav-shell.is-scrolled, .privacy-banner { background: #f5f8fb; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-shell, .button, .text-link, .season-tabs button,
+  .nav-shell .menu, .carousel-controls button,
+  .photo-zoom-controls button, .photo-navigation button,
+  #photo-dialog .close { transition: none !important; }
+  .button::after, .text-link::after, button:not(.photo-open)::after { transition: none; transform: none; }
+}
